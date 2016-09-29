@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @result.task %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @result.status %>
+</p>
+
+<p>
+  <strong>Short result:</strong>
+  <%= @result.short_result %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @result.result %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

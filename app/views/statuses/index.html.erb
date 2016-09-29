@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Statuses</h1>
+
+<h2>Tasks</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Script</th>
+      <th>Priority</th>
+      <th>Repeat</th>
+      <th>Memo</th>
+      <th>Invoked</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.script %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.repeat %></td>
+        <td><%= task.memo %></td>
+        <td><%= task.invoked %></td>
+        <td><%= link_to 'Show', task %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Short result</th>
+      <th>Result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.task %></td>
+        <td><%= result.status %></td>
+        <td><%= result.short_result %></td>
+        <td><%= result.result %></td>
+        <td><%= link_to 'Show', result %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

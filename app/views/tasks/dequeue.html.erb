@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @task.script %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <strong>Repeat:</strong>
+  <%= @task.repeat %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @task.memo %>
+</p>
+
+<p>
+  <strong>Invoked:</strong>
+  <%= @task.invoked %>
+</p>
+
+<%= link_to 'Back', tasks_path %>

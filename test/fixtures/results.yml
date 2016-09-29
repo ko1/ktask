@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task: one
+  status: MyString
+  short_result: MyString
+  result: MyText
+
+two:
+  task: two
+  status: MyString
+  short_result: MyString
+  result: MyText
