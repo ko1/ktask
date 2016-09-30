@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  script: MyText
+  name: one
+  script: xyzzy
   priority: 1
   repeat: false
-  memo: MyString
+  memo: ...
   invoked: false
 
 two:
-  name: MyString
-  script: MyText
+  name: two
+  script: xyzzy
   priority: 1
   repeat: false
-  memo: MyString
+  memo: ...
   invoked: false

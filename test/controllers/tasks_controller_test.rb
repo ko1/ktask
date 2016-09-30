@@ -45,4 +45,20 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to tasks_url
   end
+
+  test 'should dequeue task' do
+    one, two = *Task.order(:id).first(2)
+    assert_equal false, one.invoked
+    assert_equal false, two.invoked
+
+    res = get '/tasks/dequeue'
+    one, two = *Task.order(:id).first(2)
+    assert_equal true,  one.invoked
+    assert_equal false, two.invoked
+
+    get '/tasks/dequeue'
+    one, two = *Task.order(:id).first(2)
+    assert_equal true, one.invoked
+    assert_equal true, two.invoked
+  end
 end

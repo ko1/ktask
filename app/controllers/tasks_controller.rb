@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   # GET /tasks/dequeue
   def dequeue
     begin
-      @task = Task.where(invoked: false).order('created_at').first
+      @task = Task.where(invoked: false).order(:id).first
       if @task
         Task.transaction do
           @task.invoked = true
