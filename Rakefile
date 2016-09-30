@@ -15,3 +15,9 @@ task :inits do
   sh 'rails generate scaffold Result task:belongs_to status:string short_result:string result:text'
   sh 'rails db:migrate'
 end
+
+task 'db:init' do
+  sh 'rails db:drop'
+  sh 'rails db:migrate'
+  sh 'rails db:seed'
+end

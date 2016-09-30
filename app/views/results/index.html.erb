@@ -7,8 +7,11 @@
     <tr>
       <th>Task</th>
       <th>Status</th>
+      <th>Worker</th>
       <th>Short result</th>
       <th>Result</th>
+      <th>Created</th>
+      <th>Completed</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +19,14 @@
   <tbody>
     <% @results.each do |result| %>
       <tr>
-        <td><%= result.task.name %></td>
+        <td><%= result.id %></td>
+        <td><%= link_to result.task.name, task_path(result.task) %></td>
         <td><%= result.status %></td>
+        <td><%= result.worker %></td>
         <td><%= result.short_result %></td>
         <td><%= result.result %></td>
+        <td><%= result.created_at %></td>
+        <td><%= result.completed_at %></td>
         <td><%= link_to 'Show', result %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +34,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Result', new_result_path %>

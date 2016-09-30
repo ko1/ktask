@@ -17,6 +17,14 @@ class TasksController < ApplicationController
           @task.save!
           result = Result.new(task: @task, status: 'waiting')
           result.save!
+
+          if @task.repeat
+            repeat_task = Task.new(
+              name: @task.name, script: @task.script,
+              priority: @task.priority, repeat: true,
+              memo: 'repeated', invoked: false)
+            repeat_task.save!
+          end
         end
       else
         @task = Task.new(id: 0, name: 'sleep', script: 'sleep 60', priority: 0, repeat: false, invoked: false)

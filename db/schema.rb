@@ -17,20 +17,22 @@ ActiveRecord::Schema.define(version: 20160929221547) do
     t.string   "status"
     t.string   "short_result"
     t.text     "result"
+    t.string   "worker"
+    t.datetime "completed_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["task_id"], name: "index_results_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name"
-    t.text     "script"
-    t.integer  "priority"
-    t.boolean  "repeat"
-    t.string   "memo"
-    t.boolean  "invoked"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",                       null: false
+    t.text     "script",                     null: false
+    t.integer  "priority",   default: 0,     null: false
+    t.boolean  "repeat",     default: false, null: false
+    t.string   "memo",       default: "",    null: false
+    t.boolean  "invoked",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

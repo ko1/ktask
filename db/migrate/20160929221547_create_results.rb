@@ -5,6 +5,8 @@ class CreateResults < ActiveRecord::Migration[5.0]
       t.string :status
       t.string :short_result
       t.text :result
+      t.string :worker
+      t.timestamp :completed_at
 
       t.timestamps
     end

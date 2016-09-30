@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :workers
   root to: 'statuses#index'
   get 'tasks/dequeue', to: 'tasks#dequeue'
   resources :tasks
