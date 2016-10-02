@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <ul>
+    <li>Task: <%= link_to(@task.name, task_path(@task)) %></li>
+    <li>Result: <%= link_to("id: #{@result.id}", result_path(@result)) %></li>
+  </ul>
+</p>

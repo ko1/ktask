@@ -10,19 +10,6 @@ class ResultsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_result_url
-    assert_response :success
-  end
-
-  test "should create result" do
-    assert_difference('Result.count') do
-      post results_url, params: { result: { result: @result.result, short_result: @result.short_result, status: @result.status, task_id: @result.task_id } }
-    end
-
-    assert_redirected_to result_url(Result.last)
-  end
-
   test "should show result" do
     get result_url(@result)
     assert_response :success
@@ -34,7 +21,7 @@ class ResultsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update result" do
-    patch result_url(@result), params: { result: { result: @result.result, short_result: @result.short_result, status: @result.status, task_id: @result.task_id } }
+    patch result_url(@result), params: { result: { result: @result.result, summary: @result.summary, task_id: @result.task_id } }
     assert_redirected_to result_url(@result)
   end
 

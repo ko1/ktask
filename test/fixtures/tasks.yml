@@ -5,13 +5,9 @@ one:
   script: xyzzy
   priority: 1
   repeat: false
-  memo: ...
-  invoked: false
 
 two:
   name: two
   script: xyzzy
   priority: 1
-  repeat: false
-  memo: ...
-  invoked: false
+  repeat: true

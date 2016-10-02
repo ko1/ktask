@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
     <%= f.label :script %>
     <%= f.text_area :script %>
   </div>
@@ -29,16 +34,6 @@
   <div class="field">
     <%= f.label :repeat %>
     <%= f.check_box :repeat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :memo %>
-    <%= f.text_field :memo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :invoked %>
-    <%= f.check_box :invoked %>
   </div>
 
   <div class="actions">

@@ -14,10 +14,11 @@ ActiveRecord::Schema.define(version: 20160929221547) do
 
   create_table "results", force: :cascade do |t|
     t.integer  "task_id"
-    t.string   "status"
-    t.string   "short_result"
+    t.string   "summary"
     t.text     "result"
+    t.string   "memo"
     t.string   "worker"
+    t.datetime "invoked_at"
     t.datetime "completed_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -25,14 +26,13 @@ ActiveRecord::Schema.define(version: 20160929221547) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.text     "script",                     null: false
-    t.integer  "priority",   default: 0,     null: false
-    t.boolean  "repeat",     default: false, null: false
-    t.string   "memo",       default: "",    null: false
-    t.boolean  "invoked",    default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",                        null: false
+    t.text     "script",                      null: false
+    t.string   "description",                 null: false
+    t.integer  "priority",    default: 0,     null: false
+    t.boolean  "repeat",      default: false, null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

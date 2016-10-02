@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times{|i|
-  task = Task.new(name: "t#{i}", script: 'sleep 5', priority: 0, repeat: true)
-  task.save!
+  task = Task.create(name: "t#{i}", description: "test-script",
+                     script: 'echo hello > "/tmp/foo" & sleep 5',
+                     priority: 0, repeat: true)
 }
-

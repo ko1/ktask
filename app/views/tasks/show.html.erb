@@ -1,33 +1,16 @@
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
-  <%= @task.name %>
+  <ul>
+    <li>Name: <%= @task.name %></li>
+    <li>Description: <%= @task.description %></li>
+    <li>Priority: <%= @task.priority %></li>
+    <li>Repeat: <%= @task.repeat %></li>
+    <li>Created at: <%= @task.created_at %></li>
+  </ul>
 </p>
-
 <p>
   <strong>Script:</strong>
-  <%= @task.script %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @task.priority %>
-</p>
-
-<p>
-  <strong>Repeat:</strong>
-  <%= @task.repeat %>
-</p>
-
-<p>
-  <strong>Memo:</strong>
-  <%= @task.memo %>
-</p>
-
-<p>
-  <strong>Invoked:</strong>
-  <%= @task.invoked %>
+  <pre><%= @task.script %></pre>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

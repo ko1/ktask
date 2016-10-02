@@ -17,7 +17,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create task" do
     assert_difference('Task.count') do
-      post tasks_url, params: { task: { invoked: @task.invoked, memo: @task.memo, name: @task.name, priority: @task.priority, repeat: @task.repeat, script: @task.script } }
+      post tasks_url, params: { task: { name: @task.name, priority: @task.priority, script: @task.script, repeat: @task.repeat } }
     end
 
     assert_redirected_to task_url(Task.last)
@@ -34,7 +34,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update task" do
-    patch task_url(@task), params: { task: { invoked: @task.invoked, memo: @task.memo, name: @task.name, priority: @task.priority, repeat: @task.repeat, script: @task.script } }
+    patch task_url(@task), params: { task: { name: @task.name, priority: @task.priority, repeat: @task.repeat, script: @task.script } }
     assert_redirected_to task_url(@task)
   end
 
@@ -46,19 +46,9 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to tasks_url
   end
 
-  test 'should dequeue task' do
-    one, two = *Task.order(:id).first(2)
-    assert_equal false, one.invoked
-    assert_equal false, two.invoked
-
-    res = get '/tasks/dequeue'
-    one, two = *Task.order(:id).first(2)
-    assert_equal true,  one.invoked
-    assert_equal false, two.invoked
-
-    get '/tasks/dequeue'
-    one, two = *Task.order(:id).first(2)
-    assert_equal true, one.invoked
-    assert_equal true, two.invoked
+  test 'should register task' do
+    assert_difference('Result.count', +1) do
+      post register_task_url(@task)
+    end
   end
 end

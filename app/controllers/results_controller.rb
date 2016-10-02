@@ -69,6 +69,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:task_id, :status, :short_result, :result)
+      params.require(:result).permit(:task_id, :summary, :result)
     end
 end

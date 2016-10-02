@@ -7,35 +7,6 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
-  # GET /tasks/dequeue
-  def dequeue
-    begin
-      @task = Task.where(invoked: false).order(:id).first
-      if @task
-        Task.transaction do
-          @task.invoked = true
-          @task.save!
-          result = Result.new(task: @task, status: 'waiting')
-          result.save!
-
-          if @task.repeat
-            repeat_task = Task.new(
-              name: @task.name, script: @task.script,
-              priority: @task.priority, repeat: true,
-              memo: 'repeated', invoked: false)
-            repeat_task.save!
-          end
-        end
-      else
-        @task = Task.new(id: 0, name: 'sleep', script: 'sleep 60', priority: 0, repeat: false, invoked: false)
-      end
-    rescue => e
-      #p e
-      #retry
-      raise
-    end
-  end
-
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -90,6 +61,12 @@ class TasksController < ApplicationController
     end
   end
 
+  # POST /tasks/1/register
+  def register
+    @task = Task.find(params[:id])
+    @result = Result.register(@task)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -98,6 +75,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :script, :priority, :repeat, :memo, :invoked)
+      params.require(:task).permit(:name, :script, :priority, :repeat, :memo)
     end
 end

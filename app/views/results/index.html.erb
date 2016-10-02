@@ -5,12 +5,14 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Task</th>
-      <th>Status</th>
-      <th>Worker</th>
-      <th>Short result</th>
+      <th>Summary</th>
       <th>Result</th>
+      <th>Worker</th>
+      <th>Memo</th>
       <th>Created</th>
+      <th>Invoked</th>
       <th>Completed</th>
       <th colspan="3"></th>
     </tr>
@@ -21,11 +23,12 @@
       <tr>
         <td><%= result.id %></td>
         <td><%= link_to result.task.name, task_path(result.task) %></td>
-        <td><%= result.status %></td>
-        <td><%= result.worker %></td>
-        <td><%= result.short_result %></td>
+        <td><%= result.summary %></td>
         <td><%= result.result %></td>
+        <td><%= result.worker %></td>
+        <td><%= result.memo %></td>
         <td><%= result.created_at %></td>
+        <td><%= result.invoked_at %></td>
         <td><%= result.completed_at %></td>
         <td><%= link_to 'Show', result %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
