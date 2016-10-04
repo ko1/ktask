@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   task: one
+  result: res1
+  summary: sum1
 
 two:
   task: two
+  result: res2
+  summary: sum2

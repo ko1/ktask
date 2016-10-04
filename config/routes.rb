@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   root to: 'statuses#index'
-  get 'api/deq', to: 'apis#deq', as: :api_deq
-  get 'api/complete/:id', to: 'apis#complete', as: :api_complete
 
-  resource :api
-  
   resources :tasks do
     member do
       post 'register'
@@ -12,6 +8,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :results
+  resources :results do
+    member do
+      get 'complete'
+      post 'complete'
+    end
+    collection do
+      get 'deq'
+      post 'deq'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

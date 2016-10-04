@@ -3,11 +3,13 @@
 one:
   name: one
   script: xyzzy
+  description: one-desc
   priority: 1
   repeat: false
 
 two:
   name: two
   script: xyzzy
+  description: two-desc
   priority: 1
   repeat: true

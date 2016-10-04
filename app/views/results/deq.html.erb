@@ -1,0 +1,10 @@
+<p>
+  <ul>
+    <% if @task.id != 0 %>
+      <li>Task: <%= link_to @task.name, @task %></li>
+    <% else %>
+      <li>Task script: <pre><%= @task.script %></pre>
+    <% end %>
+    <li>result_id: <%= @result_id %></li>
+  </ul>
+</p>

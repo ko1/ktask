@@ -1,1 +1,1 @@
-json.result_id @result.id
+json.registered_result @result.id

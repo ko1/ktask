@@ -1,33 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Task:</strong>
-  <%= @result.task.name %>
-</p>
-
-<p>
-  <strong>Summary:</strong>
-  <%= @result.summary %>
-</p>
-
-<p>
-  <strong>Result:</strong>
-  <%= @result.result %>
-</p>
-
-<p>
   <ul>
-    <li>Status: <%= @result.status %></li>
-    <li>Worker: <%= @result.worker %></li>
+    <li>Task: <%= link_to @result.task.name, task_path(@result.task) %></li>
+    <li>Status: <%= @result.status_with_time %></li>
     <li>Memo: <%= @result.memo %></li>
-    <li>Created: <%= @result.created_at %> </li>
-    <li>Invoked: <%= @result.invoked_at %> </li>
-    <li>Completed: <%= @result.completed_at %></li>
+    <li>Worker: <%= @result.worker %></li>
   </ul>
 </p>
-
 <p>
-  <strong>Result:</strong>
+  <strong>Result</strong>
+  <%= @result.summary %>
+</p>
+<p>
   <%= @result.result %>
 </p>
 

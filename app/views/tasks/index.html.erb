@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th>Name</th>
+      <th>Description</th>
       <th>Script</th>
       <th>Priority</th>
       <th>Repeat</th>
@@ -17,12 +17,12 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-	<td><%= task.id %></td>
-        <td><%= task.name %></td>
+        <td><%= link_to task.name, task %></td>
+        <td><%= task.description %></td>
         <td><%= task.script %></td>
         <td><%= task.priority %></td>
         <td><%= task.repeat %></td>
-        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Register', register_task_path(task) %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

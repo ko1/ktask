@@ -1,7 +1,16 @@
 <p id="notice"><%= notice %></p>
 <p>
   <ul>
-    <li>Task: <%= link_to(@task.name, task_path(@task)) %></li>
-    <li>Result: <%= link_to("id: #{@result.id}", result_path(@result)) %></li>
+    <li>Registered result: <%= link_to @result.id, result_url(@result) %></li>
+    <li>Name: <%= @task.name %> </li>
+    <li>Priority: <%= @task.priority %> </li>
+    <li>Repeat: <%= @task.repeat %></li>
   </ul>
 </p>
+<p>
+  <strong>Script:</strong>
+  <pre><%= @task.script %></pre>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
