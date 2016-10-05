@@ -4,17 +4,15 @@ Rails.application.routes.draw do
   resources :tasks do
     member do
       post 'register'
-      get 'register'
     end
   end
 
   resources :results do
     member do
-      get 'complete'
       post 'complete'
+      post 'revoke'
     end
     collection do
-      get 'deq'
       post 'deq'
     end
   end

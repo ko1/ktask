@@ -23,6 +23,7 @@
         <td><%= task.priority %></td>
         <td><%= task.repeat %></td>
         <td><%= link_to 'Show', task %></td>
+        <td><%= button_to 'Register', register_task_path(task) %></td>
       </tr>
     <% end %>
   </tbody>

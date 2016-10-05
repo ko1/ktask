@@ -6,6 +6,7 @@ class CreateResults < ActiveRecord::Migration[5.0]
       t.text :result
       t.string :memo
       t.string :worker
+      t.string :connected_from
       t.timestamp :invoked_at
       t.timestamp :completed_at
 

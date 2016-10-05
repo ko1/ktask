@@ -6,6 +6,7 @@
     <li>Status: <%= @result.status_with_time %></li>
     <li>Memo: <%= @result.memo %></li>
     <li>Worker: <%= @result.worker %></li>
+    <li>Connected from: <%= @result.connected_from %></li>
   </ul>
 </p>
 <p>
@@ -13,7 +14,7 @@
   <%= @result.summary %>
 </p>
 <p>
-  <%= @result.result %>
+  <pre><%= @result.result %></pre>
 </p>
 
 <%= link_to 'Edit', edit_result_path(@result) %> |

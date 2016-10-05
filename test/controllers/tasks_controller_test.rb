@@ -48,8 +48,8 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test 'should register task' do
     assert_difference('Result.count', 2) do
-      get register_task_url(@task)
-      get register_task_url(@task)
+      post register_task_url(@task)
+      post register_task_url(@task)
     end
   end
 end

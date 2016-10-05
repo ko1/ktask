@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20160929221547) do
     t.text     "result"
     t.string   "memo"
     t.string   "worker"
+    t.string   "connected_from"
     t.datetime "invoked_at"
     t.datetime "completed_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["task_id"], name: "index_results_on_task_id"
   end
 

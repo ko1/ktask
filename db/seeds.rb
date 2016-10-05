@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+task = Task.create(
+  name: 'test1', description: 'wc',
+  script: 'wc /etc/dictionaries-common/words',
+  repeat: true
+)
+Result.register(task)
+
+__END__
+
 10.times{|i|
   task = Task.create(name: "t#{i}", description: "test-script",
                      script: 'echo hello > "/tmp/foo" & sleep 5',

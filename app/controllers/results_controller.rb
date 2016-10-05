@@ -70,6 +70,7 @@ class ResultsController < ApplicationController
           @task = result.task
           result.invoked_at = Time.now
           result.worker = worker || 'unknown-worker'
+          result.connected_from = request.ip
           result.save!
 
           if @task.repeat
@@ -87,7 +88,12 @@ class ResultsController < ApplicationController
   end
 
   def complete
-    result = Result.find(params[:id])
+    result_id = params[:id].to_i
+    if result_id == 0
+      @status = 'OK'
+      return
+    end
+    result = Result.find(result_id)
     json_param = params[:json] || raise('no json parameter specified')
     update_params = JSON.parse(json_param)
 
