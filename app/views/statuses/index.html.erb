@@ -38,7 +38,6 @@
       <th>Task</th>
       <th>Status</th>
       <th>Sumamry</th>
-      <th>Result</th>
     </tr>
   </thead>
 
@@ -49,7 +48,6 @@
         <td><%= link_to(result.task.name, task_path(result.task)) %></td>
         <td><%= result.status %></td>
         <td><%= result.summary %></td>
-        <td><%= result.result %></td>
       </tr>
     <% end %>
   </tbody>
