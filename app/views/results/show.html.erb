@@ -4,8 +4,8 @@
   <ul>
     <li>Task: <%= link_to @result.task.name, task_path(@result.task) %></li>
     <% if @result.completed_at %>
-      <li>Status: <%= @result.status_with_time %> (in <%= Integer(@result.completed_at - @result.invked_at) %> sec)</li>
-    <% eles %>
+      <li>Status: <%= @result.status_with_time %> (in <%= Integer(@result.completed_at - @result.invoked_at) %> sec)</li>
+    <% else %>
       <li>Status: <%= @result.status_with_time %></li>
     <% end %>
     <li>Memo: <%= @result.memo %></li>

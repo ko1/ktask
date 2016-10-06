@@ -29,8 +29,33 @@
   </tbody>
 </table>
 
+
 <h2>Results</h1>
 
+<h3>Queued/Invoked</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Worker</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @not_completed_results.each do |result| %>
+      <tr>
+        <td><%= link_to(result.id, result_path(result)) %></td>
+        <td><%= link_to(result.task.name, task_path(result.task)) %></td>
+        <td><%= result.status_with_time %></td>
+        <td><%= result.worker_signature %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Completed</h3>
 <table>
   <thead>
     <tr>
@@ -43,12 +68,12 @@
   </thead>
 
   <tbody>
-    <% @results.each do |result| %>
+    <% @completed_results.each do |result| %>
       <tr>
 	<td><%= link_to(result.id, result_path(result)) %></td>
         <td><%= link_to(result.task.name, task_path(result.task)) %></td>
-        <td><%= result.status %></td>
-	<td><%= result.worker %></td>
+        <td><%= result.status_with_length %></td>
+	<td><%= result.worker_signature %></td>
         <td><%= result.summary %></td>
       </tr>
     <% end %>
