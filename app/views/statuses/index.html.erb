@@ -37,6 +37,7 @@
       <th>ID</th>
       <th>Task</th>
       <th>Status</th>
+      <th>Worker</th>
       <th>Sumamry</th>
     </tr>
   </thead>
@@ -47,6 +48,7 @@
 	<td><%= link_to(result.id, result_path(result)) %></td>
         <td><%= link_to(result.task.name, task_path(result.task)) %></td>
         <td><%= result.status %></td>
+	<td><%= result.worker %></td>
         <td><%= result.summary %></td>
       </tr>
     <% end %>

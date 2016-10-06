@@ -3,10 +3,17 @@
 <p>
   <ul>
     <li>Task: <%= link_to @result.task.name, task_path(@result.task) %></li>
-    <li>Status: <%= @result.status_with_time %></li>
+    <% if @result.completed_at %>
+      <li>Status: <%= @result.status_with_time %> (in <%= Integer(@result.completed_at - @result.invked_at) %> sec)</li>
+    <% eles %>
+      <li>Status: <%= @result.status_with_time %></li>
+    <% end %>
     <li>Memo: <%= @result.memo %></li>
     <li>Worker: <%= @result.worker %></li>
     <li>Connected from: <%= @result.connected_from %></li>
+    <li>Created at: <%= @result.created_at %></li>
+    <li>Invoked at: <%= @result.invoked_at %></li>
+    <li>Completed at: <%= @result.completed_at %></li>
   </ul>
 </p>
 <p>
